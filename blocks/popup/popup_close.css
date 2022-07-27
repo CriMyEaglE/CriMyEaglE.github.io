@@ -1,0 +1,4 @@
+.popup_close {
+   position: absolute;
+   z-index: -1;
+}

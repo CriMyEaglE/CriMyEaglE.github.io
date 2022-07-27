@@ -1,0 +1,18 @@
+.edit-form__save-button {
+   width: 238px;
+   height: 46px;
+   background-color: black;
+   border: none;
+   color: white;
+   margin-top: 53px;
+   padding: 0;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 16.94px;
+   text-align: center;
+   transition: opacity .5s;
+}
+
+.edit-form__save-button:hover {
+   opacity: .8;
+}
