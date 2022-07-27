@@ -33,5 +33,4 @@
 @import url(../blocks/edit-form/__title/edit-form__title.css);
 
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/popup_open.css);
-@import url(../blocks/popup/popup_close.css);
+@import url(../blocks/popup/popup_opened.css);
