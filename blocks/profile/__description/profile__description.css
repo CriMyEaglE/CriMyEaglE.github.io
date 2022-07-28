@@ -12,6 +12,10 @@
 
 @media (min-width: 768px) {
    .profile__description {
-      grid-area: description;
+      grid-area: description;    
+      font-size: 18px;
+      text-align: start;
+      margin-left: 30px;
+      margin-top: 10px;
    }
 }

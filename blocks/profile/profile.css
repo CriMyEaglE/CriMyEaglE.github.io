@@ -13,6 +13,7 @@
       grid-template-columns: 120px auto 150px;
       grid-template-rows: auto;
       grid-template-areas: "avatar name add-button"
-                           "avatar description add-button";
+                           "avatar description add-button"
+                           "avatar . add-button";
    }
 }
