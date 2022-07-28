@@ -1,8 +1,15 @@
-header {
+.header {
    display: flex;
-   max-width: 1184px;
+   max-width: 884px;
    margin: 0 auto;
    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
    padding-top: 28px;
    padding-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+   .header {      
+    padding-bottom: 41px;
+    padding-top: 45px;
+   }
 }

@@ -6,3 +6,11 @@
    padding-top: 24px;
    margin-left: 26px;
 }
+
+@media (min-width: 768px) {
+   .header__logo {
+      background-size: 142px 33px;
+      padding-top: 32px;
+      margin-left: 0;
+   }
+}

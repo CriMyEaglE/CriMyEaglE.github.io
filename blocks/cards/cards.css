@@ -2,3 +2,19 @@
    padding-top: 36px;
    margin: 0 auto;
 }
+
+@media (min-width: 768px) {
+   .cards {
+      display: grid;
+      grid-template-columns: 282px 282px;
+      grid-template-rows: auto;
+      justify-content: center;
+      column-gap: 20.5px;
+   }
+}
+
+@media (min-width: 907.5px) {
+   .cards {
+      grid-template-columns: repeat(3, 282px);
+   }
+}
