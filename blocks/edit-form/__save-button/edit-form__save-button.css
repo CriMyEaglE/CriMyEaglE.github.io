@@ -16,3 +16,14 @@
 .edit-form__save-button:hover {
    opacity: .8;
 }
+
+@media (min-width: 768px) {
+   .edit-form__save-button {
+      width: 358px;
+      height: 50px;
+      margin-top: 48px;
+      margin-bottom: 12px;
+      font-size: 18px;
+      line-height: 21.78px;
+   }
+}

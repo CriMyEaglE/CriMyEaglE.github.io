@@ -8,3 +8,13 @@
    margin-top: 26px;
    margin-bottom: 0;
 }
+
+@media (min-width: 768px) {
+   .edit-form__title {
+      font-size: 24px;
+      line-height: 29.05px;
+      max-width: 330px;
+      margin-left: -28px;
+      margin-top: 34px;
+  }
+}

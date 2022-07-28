@@ -10,3 +10,11 @@
    padding: 0;
    margin-top: 74px;
 }
+
+@media (min-width: 768px) {
+   .edit-form__name {
+      max-width: 358px;
+      margin-top: 50px;
+      padding-bottom: 7px;
+   }
+}

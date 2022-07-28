@@ -15,3 +15,12 @@
 .edit-form__close-button:hover {
    opacity: .6;
 }
+
+@media (min-width: 768px) {
+   .edit-form__close-button {
+      width: 32px;
+      height: 32px;
+      top: -40px;
+      left: 438px;
+   }
+}
