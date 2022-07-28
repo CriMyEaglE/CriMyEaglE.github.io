@@ -4,3 +4,10 @@
    padding-bottom: 21px;
    padding-top: 17px;
 }
+
+@media (min-width: 768px) {
+   .footer {
+      padding-top: 32px;
+      padding-bottom: 40px;
+   }
+}

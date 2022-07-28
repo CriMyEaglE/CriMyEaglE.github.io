@@ -7,3 +7,11 @@
    width: 100%;
    margin-left: 19px;
 }
+
+@media (min-width: 768px) {
+   .footer__copyright {
+      font-size: 18px;
+      line-height: 21.78px;
+      margin-left: 0;
+   }
+}

@@ -16,5 +16,7 @@
 @media (min-width: 907.5px) {
    .cards {
       grid-template-columns: repeat(3, 282px);
+      column-gap: 17px;
+      padding-top: 50px;
    }
 }
