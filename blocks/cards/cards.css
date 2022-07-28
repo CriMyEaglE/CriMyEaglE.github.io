@@ -3,7 +3,7 @@
    margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 584px) {
    .cards {
       display: grid;
       grid-template-columns: 282px 282px;

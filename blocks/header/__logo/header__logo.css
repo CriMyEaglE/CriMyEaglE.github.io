@@ -5,6 +5,11 @@
    width: 100%;
    padding-top: 24px;
    margin-left: 26px;
+   transition: opacity .5s;
+}
+
+.header__logo:hover {
+   opacity: 0.6;
 }
 
 @media (min-width: 768px) {
