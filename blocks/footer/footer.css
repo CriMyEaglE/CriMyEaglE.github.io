@@ -1,8 +1,8 @@
 .footer {
    width: 100%;
    margin: 0 auto;
-   padding-bottom: 21px;
-   padding-top: 17px;
+   padding-bottom: 18px;
+   padding-top: 15px;
 }
 
 @media (min-width: 700px) {
@@ -10,15 +10,17 @@
       max-width: 700px;
    }
 
-@media (min-width: 768px) {
-   .footer {
-      padding-top: 32px;
-      padding-bottom: 40px;
+   @media (min-width: 768px) {
+      .footer {
+         padding-top: 29px;
+         padding-bottom: 37px;
+      }
    }
+
 }
 
-}@media (min-width: 907px) {
+@media (min-width: 907px) {
    .footer {
       max-width: 880px;
-   }   
+   }
 }

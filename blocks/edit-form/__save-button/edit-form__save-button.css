@@ -4,13 +4,14 @@
    background-color: black;
    border: none;
    color: white;
-   margin-top: 53px;
+   margin-top: 45px;
    padding: 0;
    font-weight: 400;
    font-size: 14px;
    line-height: 16.94px;
    text-align: center;
    transition: opacity .5s;
+   border-radius: 2px;
 }
 
 .edit-form__save-button:hover {

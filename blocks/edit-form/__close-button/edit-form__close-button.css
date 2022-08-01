@@ -8,7 +8,7 @@
    border: none;
    top: -36px;
    right: 0px;
-   background-color: rgba(0,0,0,0);
+   background-color: transparent;
    transition: opacity .5s;
 }
 
@@ -21,6 +21,6 @@
       width: 32px;
       height: 32px;
       top: -40px;
-      left: 438px;
+      right: -40px;
    }
 }

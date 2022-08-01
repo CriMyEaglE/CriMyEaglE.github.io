@@ -3,18 +3,18 @@
    background-repeat: no-repeat;
    background-size: 7.5px 7.5px;
    background-position: center center;
-   background-color: black;
+   background-color: transparent;
    width: 18px;
    height: 18px;
    border: 1px solid white;
-   position: absolute;
-   margin-top: 7px;
-   margin-left: 10px;
    transition: opacity .5s;
+   margin-left: 11px;
+   margin-bottom: 8px;
 }
 
 .profile__edit-button:hover {
    opacity: 0.6;
+   cursor: url("../../../images/cursor.svg"), default;
 }
 
 @media (min-width: 768px) {
