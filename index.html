@@ -23,7 +23,7 @@
                <button type="button" class="profile__edit-button" id="editButton"></button>
             </div>
             <p class="profile__description">Исследователь океана</p>
-            <button type="button" class="profile__add-button"></button>
+            <button type="button" class="profile__add-button" id="addButton"></button>
          </section>
 
          <section class="cards">
@@ -67,6 +67,21 @@
          </div>
       </div>
    </div>
+
+   <div class="popup" id="addFormPopup">
+      <div class="popup__container">
+         <div class="edit-form">
+            <button class="edit-form__close-button" id="closeButton"></button>
+            <h2 class="edit-form__title">Новое место</h2>
+            <input type="text" class="edit-form__input-form" name="name" id="photoName"
+               placeholder="Название">
+            <input type="text" class="edit-form__input-form" name="descriprion" id="photoLink"
+               placeholder="Ссылка на картинку">
+            <button type="submit" class="edit-form__save-button" id="saveButton">Сохранить</button>
+         </div>
+      </div>
+   </div>
+</div>
 
    <script src="./script.js"></script>
 

@@ -16,9 +16,10 @@
 }
 
 @media (min-width: 768px) {
-   .edit-form__name {
+   .edit-form__input-form {
       max-width: 358px;
-      margin-top: 50px;
+      width: 100%;
+      margin-top: 32px;
       padding-bottom: 7px;
    }
 }
