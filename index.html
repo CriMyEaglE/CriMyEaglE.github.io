@@ -28,53 +28,23 @@
 
          <section class="cards">
 
-            <article class="card">
+            <article class="card card__template">
                <img src="./images/karachevsk.jpg" alt="Старинное строение на горе" class="card__image">
                <div class="card__field">
                   <h2 class="card__title">Карачаевск</h2>
-                  <button type="button" class="card__like-button"></button>
+                  <button type="button" class="card__like-button" id="likeButton"></button>
                </div>
             </article>
 
-            <article class="card">
-               <img src="./images/elbrus.png" alt="Гора Эльбрус" class="card__image">
-               <div class="card__field">
-                  <h2 class="card__title">Гора Эльбрус</h2>
-                  <button type="button" class="card__like-button"></button>
+            <template id="card">
+               <div class="card">
+                  <img class="card__image">
+                  <div class="card__field">
+                     <h2 class="card__title"></h2>
+                     <button type="button" class="card__like-button"></button>
+                  </div>
                </div>
-            </article>
-
-            <article class="card">
-               <img src="./images/dombai.png" alt="Лес со горами в снегу" class="card__image">
-               <div class="card__field">
-                  <h2 class="card__title">Домбай</h2>
-                  <button type="button" class="card__like-button"></button>
-               </div>
-            </article>
-
-            <article class="card">
-               <img src="./images/elbrus.png" alt="Гора Эльбрус" class="card__image">
-               <div class="card__field">
-                  <h2 class="card__title">Гора Эльбрус</h2>
-                  <button type="button" class="card__like-button"></button>
-               </div>
-            </article>
-
-            <article class="card">
-               <img src="./images/dombai.png" alt="Лес со горами в снегу" class="card__image">
-               <div class="card__field">
-                  <h2 class="card__title">Домбай</h2>
-                  <button type="button" class="card__like-button"></button>
-               </div>
-            </article>
-
-            <article class="card">
-               <img src="./images/karachevsk.jpg" alt="Старинное строение на горе" class="card__image">
-               <div class="card__field">
-                  <h2 class="card__title">Карачаево-Черкесск</h2>
-                  <button type="button" class="card__like-button"></button>
-               </div>
-            </article>
+            </template>
 
          </section>
 
@@ -88,14 +58,16 @@
             <div class="edit-form">
                <button class="edit-form__close-button" id="closeButton"></button>
                <h2 class="edit-form__title">Редактировать профиль</h2>
-               <input type="text" class="edit-form__input-form" name="name" id="editFormName" placeholder="Жак-Ив Кусто">
-               <input type="text" class="edit-form__input-form" name="descriprion" id="editFormJob" placeholder="Исследователь океана">
+               <input type="text" class="edit-form__input-form" name="name" id="editFormName"
+                  placeholder="Жак-Ив Кусто">
+               <input type="text" class="edit-form__input-form" name="descriprion" id="editFormJob"
+                  placeholder="Исследователь океана">
                <button type="submit" class="edit-form__save-button" id="editFormSaveButton">Сохранить</button>
             </div>
          </div>
       </div>
    </div>
-   
+
    <script src="./script.js"></script>
 
 </body>
