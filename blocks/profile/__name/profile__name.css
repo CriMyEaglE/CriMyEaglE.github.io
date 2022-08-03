@@ -16,6 +16,7 @@
 
 @media (min-width: 768px) {
    .profile__name {
+      text-align: start;
       grid-area: name;
       line-height: 48px;
       font-size: 42px;

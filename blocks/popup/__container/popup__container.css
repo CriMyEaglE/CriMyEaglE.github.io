@@ -13,7 +13,6 @@
 @media (min-width: 584px) {
    .popup__container {
       width: 430px;
-      left: calc((100% - 430px)/2);
       top: 195px;
    }
 }
