@@ -28,17 +28,9 @@
 
          <section class="cards">
 
-            <article class="card card__template">
-               <img src="./images/karachevsk.jpg" alt="Старинное строение на горе" class="card__image">
-               <div class="card__field">
-                  <h2 class="card__title">Карачаевск</h2>
-                  <button type="button" class="card__like-button" id="likeButton"></button>
-               </div>
-            </article>
-
             <template id="card">
                <div class="card">
-                  <img class="card__image">
+                  <img src="" alt="" class="card__image">
                   <div class="card__field">
                      <h2 class="card__title"></h2>
                      <button type="button" class="card__like-button"></button>
@@ -53,35 +45,36 @@
          <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
 
-      <div class="popup" id="editFormPopup">
+      <form class="popup popup_hidden" id="editFormPopup">
          <div class="popup__container">
             <div class="edit-form">
                <button class="edit-form__close-button" id="closeButton"></button>
                <h2 class="edit-form__title">Редактировать профиль</h2>
-               <input type="text" class="edit-form__input-form" name="name" id="editFormName"
+               <input type="text" class="edit-form__input-form" name="profileName" id="inputName"
                   placeholder="Жак-Ив Кусто">
-               <input type="text" class="edit-form__input-form" name="descriprion" id="editFormJob"
+               <input type="text" class="edit-form__input-form" name="profileJob" id="inputJob"
                   placeholder="Исследователь океана">
                <button type="submit" class="edit-form__save-button" id="editFormSaveButton">Сохранить</button>
             </div>
          </div>
+      </form>
+
+      <form class="popup popup_hidden" id="addFormPopup">
+         <div class="popup__container">
+            <div class="edit-form">
+               <button class="edit-form__close-button" id="closeButton"></button>
+               <h2 class="edit-form__title">Новое место</h2>
+               <input type="text" class="edit-form__input-form" name="photoName" id="photoName" placeholder="Название">
+               <input type="text" class="edit-form__input-form" name="photoLink" id="photoLink"
+                  placeholder="Ссылка на картинку">
+               <button type="submit" class="edit-form__save-button" id="saveButton">Сохранить</button>
+            </div>
+         </div>
+      </form>
       </div>
    </div>
 
-   <div class="popup" id="addFormPopup">
-      <div class="popup__container">
-         <div class="edit-form">
-            <button class="edit-form__close-button" id="closeButton"></button>
-            <h2 class="edit-form__title">Новое место</h2>
-            <input type="text" class="edit-form__input-form" name="name" id="photoName"
-               placeholder="Название">
-            <input type="text" class="edit-form__input-form" name="descriprion" id="photoLink"
-               placeholder="Ссылка на картинку">
-            <button type="submit" class="edit-form__save-button" id="saveButton">Сохранить</button>
-         </div>
-      </div>
-   </div>
-</div>
+
 
    <script src="./script.js"></script>
 

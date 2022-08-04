@@ -1,5 +1,6 @@
 .popup {
-	visibility: hidden;
+	visibility: visible;
+	display: flex;
    flex-direction: column;
    align-items: center;
 	position: fixed;
@@ -9,6 +10,6 @@
 	height: 100%;
 	background:	rgba(0,0,0,0.5);
 	z-index: 1;
-	opacity: 0;
+	opacity: 1;
 	transition: visibility 0s, opacity 0.5s linear;
 }
