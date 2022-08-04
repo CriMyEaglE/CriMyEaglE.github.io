@@ -39,6 +39,7 @@ addButton.addEventListener('click', function() {
 
 function formSubmitHandlerChangeProfile (evt) {
   evt.preventDefault();
+  console.log(evt.submitter)
     const newName = editForm.querySelector('#inputName').value;
     const newJob = editForm.querySelector('#inputJob').value;
     const oldName = document.querySelector('.profile__name');
@@ -94,7 +95,18 @@ function createCard(photoName, photoLink) {
   deleteButton.addEventListener('click', function() {
     deleteButton.parentNode.remove();
   });
-
+  const increaseCardImage = newCard.querySelector('.card__image');
+  increaseCardImage.addEventListener('click', function() {
+    const fullscreenImagePopup = document.querySelector('#fullscreenImagePopup');
+    fullscreenImagePopup.style.opacity = 1;
+    fullscreenImagePopup.classList.remove('popup_hidden');
+    fullscreenImagePopup.querySelector('.fullscreen__image').src = photoLink;
+    fullscreenImagePopup.querySelector('.fullscreen__title').textContent = photoName;
+    const closeButton = fullscreenImagePopup.querySelector('.fullscreen__close-button');
+    closeButton.addEventListener('click', function() {
+      closePopup(fullscreenImagePopup);
+    })
+  });
   cards.prepend(newCard);
 }
 
@@ -104,11 +116,9 @@ for (let i = 0; i < initialCards.length; i++) {
 
 function formSubmitHandlerNewCard (evt) {
   evt.preventDefault();
-  if (evt.submitter.getAttribute('class') === 'edit-form__save-button') {
   const newPhotoName = addForm.querySelector('#photoName').value;
   const newPhotoLink = addForm.querySelector('#photoLink').value;
   createCard(newPhotoName, newPhotoLink);
-  }
   closePopup(addForm);
 }
 addForm.addEventListener('submit', formSubmitHandlerNewCard); 
