@@ -39,12 +39,12 @@ addButton.addEventListener('click', function() {
 
 function formSubmitHandlerChangeProfile (evt) {
   evt.preventDefault();
-  const newName = editForm.querySelector('#inputName').value;
-  const newJob = editForm.querySelector('#inputJob').value;
-  const oldName = document.querySelector('.profile__name');
-  const oldJob = document.querySelector('.profile__description');
-  oldName.textContent = newName;
-  oldJob.textContent = newJob;
+    const newName = editForm.querySelector('#inputName').value;
+    const newJob = editForm.querySelector('#inputJob').value;
+    const oldName = document.querySelector('.profile__name');
+    const oldJob = document.querySelector('.profile__description');
+    oldName.textContent = newName;
+    oldJob.textContent = newJob;
   closePopup(editForm);
 }
 editForm.addEventListener('submit', formSubmitHandlerChangeProfile); 
@@ -90,6 +90,10 @@ function createCard(photoName, photoLink) {
   likeButton.addEventListener('click', function() {
     likeButton.classList.toggle('card__like-button_active');
   });
+  const deleteButton = newCard.querySelector('.card__delete-button');
+  deleteButton.addEventListener('click', function() {
+    deleteButton.parentNode.remove();
+  });
 
   cards.prepend(newCard);
 }
@@ -100,9 +104,11 @@ for (let i = 0; i < initialCards.length; i++) {
 
 function formSubmitHandlerNewCard (evt) {
   evt.preventDefault();
+  if (evt.submitter.getAttribute('class') === 'edit-form__save-button') {
   const newPhotoName = addForm.querySelector('#photoName').value;
   const newPhotoLink = addForm.querySelector('#photoLink').value;
   createCard(newPhotoName, newPhotoLink);
+  }
   closePopup(addForm);
 }
 addForm.addEventListener('submit', formSubmitHandlerNewCard); 
