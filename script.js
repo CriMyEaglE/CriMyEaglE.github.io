@@ -86,6 +86,10 @@ function createCard(photoName, photoLink) {
   newCard.querySelector('.card__title').textContent = photoName;
   newCard.querySelector('.card__image').setAttribute('alt', photoName)
   newCard.querySelector('.card__image').src = photoLink;
+  const likeButton = newCard.querySelector('.card__like-button');
+  likeButton.addEventListener('click', function() {
+    likeButton.classList.toggle('card__like-button_active');
+  });
 
   cards.prepend(newCard);
 }
