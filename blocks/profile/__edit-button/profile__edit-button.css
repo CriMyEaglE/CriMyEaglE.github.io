@@ -12,6 +12,7 @@
    margin-bottom: 8px;
    -webkit-appearance: none;
    -moz-appearance:none;
+   appearance: none;
 }
 
 .profile__edit-button:hover {

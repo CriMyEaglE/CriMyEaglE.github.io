@@ -12,6 +12,7 @@
    transition: opacity .5s;
    -webkit-appearance: none;
    -moz-appearance:none;
+   appearance: none;
 }
 
 .edit-form__close-button:hover {
