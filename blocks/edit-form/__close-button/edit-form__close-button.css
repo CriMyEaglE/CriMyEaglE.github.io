@@ -26,7 +26,7 @@
 }
 
 button {
-   -webkit-appearance: none;
+   -webkit-appearance: button;
    -moz-appearance:none;
    appearance: none;
 }
