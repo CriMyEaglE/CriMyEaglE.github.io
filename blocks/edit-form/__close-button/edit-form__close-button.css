@@ -10,6 +10,8 @@
    right: 0px;
    background-color: transparent;
    transition: opacity .5s;
+   -webkit-appearance: none;
+   -moz-appearance:none;
 }
 
 .edit-form__close-button:hover {
