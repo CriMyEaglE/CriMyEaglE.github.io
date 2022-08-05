@@ -38,6 +38,7 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_hidden/popup_hidden.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/_dark/popup_dark.css);
 
 @import url(../blocks/fullscreen/fullscreen.css);
 @import url(../blocks/fullscreen/__close-button/fullscreen__close-button.css);
