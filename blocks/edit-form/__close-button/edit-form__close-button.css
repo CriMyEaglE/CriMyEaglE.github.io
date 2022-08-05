@@ -24,9 +24,3 @@
       right: -40px;
    }
 }
-
-button {
-   -webkit-appearance: button;
-   -moz-appearance:none;
-   appearance: none;
-}

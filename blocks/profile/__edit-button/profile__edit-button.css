@@ -10,9 +10,6 @@
    transition: opacity .5s;
    margin-left: 11px;
    margin-bottom: 8px;
-   -webkit-appearance: none;
-   -moz-appearance:none;
-   appearance: none;
 }
 
 .profile__edit-button:hover {
