@@ -1,4 +1,7 @@
 .profile__edit-button {
+   -webkit-appearance: none;
+      -moz-appearance: none;
+           appearance: none;
    background-image: url(../../../images/editButton.svg);
    background-repeat: no-repeat;
    background-size: 7.5px 7.5px;
@@ -7,6 +10,8 @@
    width: 18px;
    height: 18px;
    border: 1px solid white;
+   -webkit-transition: opacity .5s;
+   -o-transition: opacity .5s;
    transition: opacity .5s;
    margin-left: 11px;
    margin-bottom: 8px;

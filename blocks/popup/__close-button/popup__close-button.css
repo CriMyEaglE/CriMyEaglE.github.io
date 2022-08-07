@@ -1,7 +1,10 @@
 .popup__close-button {
+   -webkit-appearance: none;
+      -moz-appearance: none;
+           appearance: none;
    position: absolute;
    background-image: url(../../../images/Close.svg);
-   background-size: cover;
+   background-size: 20px 20px;
    background-repeat: no-repeat;
    width: 20px;
    height: 20px;
@@ -9,6 +12,8 @@
    top: -36px;
    right: 0px;
    background-color: transparent;
+   -webkit-transition: opacity .5s;
+   -o-transition: opacity .5s;
    transition: opacity .5s;
 }
 
