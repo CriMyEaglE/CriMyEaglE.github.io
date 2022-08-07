@@ -27,18 +27,6 @@
          </section>
 
          <section class="cards">
-
-            <template id="card">
-               <div class="card">
-                  <button type="button" class="card__delete-button"></button>
-                  <img src="" alt="" class="card__image">
-                  <div class="card__field">
-                     <h2 class="card__title"></h2>
-                     <button type="button" class="card__like-button"></button>
-                  </div>
-               </div>
-            </template>
-
          </section>
 
       </main>
@@ -48,8 +36,8 @@
 
       <div class="popup popup_hidden" id="editFormPopup">
          <div class="popup__container">
+            <button class="popup__close-button"></button>
             <div class="edit-form">
-               <button class="edit-form__close-button"></button>
                <h2 class="edit-form__title">Редактировать профиль</h2>
                <form>
                   <input type="text" class="edit-form__input-form" name="profileName" id="inputName"
@@ -64,8 +52,8 @@
 
       <div class="popup popup_hidden" id="addFormPopup">
          <div class="popup__container">
+            <button class="popup__close-button"></button>
             <div class="edit-form">
-               <button class="edit-form__close-button"></button>
                <h2 class="edit-form__title">Новое место</h2>
                <form>
                   <input type="text" class="edit-form__input-form" name="photoName" id="photoName"
@@ -79,13 +67,28 @@
       </div>
 
       <div class="popup popup_dark popup_hidden" id="fullscreenImagePopup">
-         <div class="fullscreen">
-            <button class="fullscreen__close-button"></button>
-            <img src="" alt="" class="fullscreen__image">
-            <p class="fullscreen__title"></p>
+         <div class="popup__container">
+            <button class="popup__close-button"></button>
+            <div class="fullscreen">
+               <img src="" alt="" class="fullscreen__image">
+               <p class="fullscreen__title"></p>
+            </div>
          </div>
       </div>
 
+
+      <template id="card">
+         <div class="card">
+            <button type="button" class="card__delete-button"></button>
+            <img src="" alt="" class="card__image">
+            <div class="card__field">
+               <h2 class="card__title"></h2>
+               <button type="button" class="card__like-button"></button>
+            </div>
+         </div>
+      </template>
+
+      <script src="./scripts/initial.js"></script>
       <script src="./scripts/index.js"></script>
    </div>
 
