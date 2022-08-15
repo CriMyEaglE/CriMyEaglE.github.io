@@ -1,0 +1,17 @@
+.edit-form__input-error {
+   visibility: hidden;
+   max-width: 238px;
+   width: 100%;
+   text-align: start;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 15px;
+   color: red;
+   margin-top: 5px;
+}
+
+@media (min-width: 584px) {
+   .edit-form__input-error {
+      max-width: 358px;
+   }
+}

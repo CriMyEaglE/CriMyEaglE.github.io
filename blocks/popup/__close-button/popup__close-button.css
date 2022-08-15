@@ -19,12 +19,14 @@
 
 .popup__close-button:hover {
    opacity: .6;
+   cursor: url("../../../images/cursor.svg"), default;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 584px) {
    .popup__close-button {
       width: 32px;
       height: 32px;
+      background-size: 32px 32px;
       top: -40px;
       right: -40px;
    }

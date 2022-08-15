@@ -4,6 +4,7 @@
    font-size: 14px;
    line-height: 16.94px;
    border: none;
+   outline: none;
    border-bottom: 1px solid rgba(0,0,0,0.2);
    max-width: 238px;
    width: 100%;
@@ -17,10 +18,9 @@
    display: flex;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 584px) {
    .edit-form__input-form {
       max-width: 358px;
-      width: 100%;
       margin-top: 32px;
       padding-bottom: 7px;
    }

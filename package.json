@@ -1,0 +1,23 @@
+{
+  "name": "crimyeagle.github.io",
+  "version": "1.0.0",
+  "description": "Learning platform",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CriMyEaglE/crimyeagle.github.io.git"
+  },
+  "author": "Vladimir Kulikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CriMyEaglE/crimyeagle.github.io/issues"
+  },
+  "homepage": "https://github.com/CriMyEaglE/crimyeagle.github.io#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
