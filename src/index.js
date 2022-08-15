@@ -1,38 +1,25 @@
 import changeProfile from "./components/utils.js";
-import {  enableValidation} from "./components/validation.js";
+import { enableValidation } from "./components/validation.js";
 import { fadePopup, closePopup, openPopup, openImagePopup, closeOnOverlay, closeOnEsc } from "./components/modal.js";
-import { addCard, likeCard, deleteCard, createCard, saveNewCard} from "./components/card.js";
+import { addCard, likeCard, deleteCard, createCard, saveNewCard } from "./components/card.js";
 import initialCards from "./components/initial.js";
+import '../pages/index.css';
 
 
 const editButton = document.querySelector('.profile__edit-button');
-
 const allPopups = document.querySelectorAll('.popup');
-
 const addButton = document.querySelector('#addButton');
-
 const closeButtons = document.querySelectorAll('.popup__close-button');
-
 export const profileName = document.querySelector('.profile__name');
-
 export const profileJob = document.querySelector('.profile__description');
-
 export const addForm = document.querySelector('#addFormPopup');
-
 export const photoName = addForm.querySelector('#title-input');
-
 export const photoLink = addForm.querySelector('#url-input');
-
 export const cards = document.querySelector('.cards');
-
 export const editForm = document.querySelector('#editFormPopup');
-
 export const inputName = editForm.querySelector('#name-input');
-
 export const inputJob = editForm.querySelector('#job-input');
-
 export const fullscreenImagePopup = document.querySelector('#fullscreenImagePopup');
-
 
 for (let i = 0; i < closeButtons.length; i++) {
   closeButtons[i].addEventListener('click', () => { closePopup(closeButtons[i].parentElement.parentElement); });
