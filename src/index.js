@@ -3,7 +3,7 @@ import { enableValidation } from "./components/validation.js";
 import { fadePopup, closePopup, openPopup, openImagePopup, closeOnOverlay, closeOnEsc } from "./components/modal.js";
 import { addCard, likeCard, deleteCard, createCard, saveNewCard } from "./components/card.js";
 import initialCards from "./components/initial.js";
-import '../pages/index.css';
+import './pages/index.css';
 
 
 const editButton = document.querySelector('.profile__edit-button');
@@ -59,5 +59,3 @@ document.addEventListener('keydown', (evt) => {
     allPopups.forEach(closePopup);
   }
 })
-
-enableValidation();
