@@ -1,0 +1,10 @@
+.card__likes {
+   grid-area: likes;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 16px;
+   text-align: center;
+   max-width: 38px;
+   width: 100%;
+   margin-top: -10px;
+}

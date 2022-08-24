@@ -6,9 +6,9 @@
    height: 19px;
    border: none;
    background-color: white;
-   margin-top: 30.5px;
-   margin-right: 20px;
+   margin-top: 22px;
    transition: opacity .5s;
+   grid-area: likeButton;
 }
 
 .card__like-button:hover {
