@@ -1,32 +1,40 @@
-import changeProfile from "./components/utils.js";
-import { enableValidation } from "./components/validation.js";
-import { fadePopup, closePopup, openPopup, openImagePopup, closeOnOverlay, closeOnEsc } from "./components/modal.js";
-import { addNewCard, addInitialCard, likeCard, deleteCard, createCard, saveNewCard } from "./components/card.js";
-import initialCards from "./components/initial.js";
+import { changeProfile, changeAvatar } from "./components/utils.js";
+import { enableValidation, toggleButtonState } from "./components/validation.js";
+import { closePopup, openPopup, closeOnEsc } from "./components/modal.js";
+import { addInitialCard, createCard, saveNewCard } from "./components/card.js";
+import { getUserData, getInitialCards, userId } from "./components/api.js"
+import { avatar, avatarPopup, avatarLink, editButton, editForm, inputName, inputJob, addButton, addForm, photoName, photoLink, allPopups, closeButtons, profileName, profileJob, popups } from './components/variables.js';
 import './pages/index.css';
 
-export let userId;
-
-const editButton = document.querySelector('.profile__edit-button');
-const allPopups = document.querySelectorAll('.popup');
-const addButton = document.querySelector('#addButton');
-const closeButtons = document.querySelectorAll('.popup__close-button');
-export const profileName = document.querySelector('.profile__name');
-export const profileJob = document.querySelector('.profile__description');
-export const addForm = document.querySelector('#addFormPopup');
-export const photoName = addForm.querySelector('#title-input');
-export const photoLink = addForm.querySelector('#url-input');
-export const cards = document.querySelector('.cards');
-export const editForm = document.querySelector('#editFormPopup');
-export const inputName = editForm.querySelector('#name-input');
-export const inputJob = editForm.querySelector('#job-input');
-export const fullscreenImagePopup = document.querySelector('#fullscreenImagePopup');
-
-for (let i = 0; i < closeButtons.length; i++) {
-  closeButtons[i].addEventListener('click', () => { closePopup(closeButtons[i].parentElement.parentElement); });
+const validationConfigurations = {
+  formSelector: '.edit-form',
+  inputSelector: '.edit-form__input-form',
+  submitButtonSelector: '.edit-form__save-button',
+  inactiveButtonClass: 'edit-form__save-button_disabled',
+  inputErrorClass: 'edit-form__input-form_type_error',
+  errorClass: 'edit-form__input-error_active'
 }
 
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close-button')) {
+          closePopup(popup)
+        }
+    })
+})
+
+avatar.addEventListener('click', () => {
+  avatarPopup.querySelector('.edit-form__save-button').textContent = 'Сохранить';
+  avatarLink.value = '';
+  openPopup(avatarPopup)
+});
+avatarPopup.addEventListener('submit', changeAvatar);
+
 editButton.addEventListener('click', () => {
+  editForm.querySelector('.edit-form__save-button').textContent = 'Сохранить';
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
   openPopup(editForm);
@@ -35,6 +43,7 @@ editButton.addEventListener('click', () => {
 editForm.addEventListener('submit', changeProfile);
 
 addButton.addEventListener('click', () => {
+  addForm.querySelector('.edit-form__save-button').textContent = 'Сохранить';
   photoName.value = '';
   photoLink.value = '';
   openPopup(addForm);
@@ -42,139 +51,15 @@ addButton.addEventListener('click', () => {
 
 addForm.addEventListener('submit', saveNewCard);
 
-// cards.addEventListener('click', likeCard);
-// cards.addEventListener('click', deleteCard);
-// cards.addEventListener('click', openImagePopup);
+document.addEventListener('keydown', closeOnEsc);
 
-allPopups.forEach((element) => {
-  element.addEventListener('mousedown', closeOnOverlay);
-});
-
-document.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Escape') {
-    allPopups.forEach(closePopup);
-  }
-})
-
-enableValidation();
-
-export const config = {
-  baseUrl: 'https://nomoreparties.co/v1/wbc-cohort-1',
-  headers: {
-    authorization: 'f3738230-a228-4435-8289-a861e5a04082',
-    'Content-Type': 'application/json'
-  }
-}
-
-export const getInitialCards = () => {
-  return fetch(`${config.baseUrl}/cards`,
-    config
-  )
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
-}
-
-export const editUserData = (name, about) => {
-  return fetch(`${config.baseUrl}/users/me`, {
-    method: 'PATCH',
-    headers: {
-      authorization: 'f3738230-a228-4435-8289-a861e5a04082',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: name,
-      about: about
-    })
-  });
-}
-
-export const getUserData = () => {
-  return fetch(`${config.baseUrl}/users/me`,
-    config
-  )
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
-}
-
-export const postNewCard = (name, link) => {
-  return fetch(`${config.baseUrl}/cards`, {
-    method: 'POST',
-    headers: {
-      authorization: 'f3738230-a228-4435-8289-a861e5a04082',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: name,
-      link: link
-    })
-  });
-}
-
-export const deleteCardById = (cardId) => {
-  return fetch(`${config.baseUrl}/cards/${cardId}`, {
-    method: 'DELETE',
-    headers: {
-      authorization: 'f3738230-a228-4435-8289-a861e5a04082',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ id: cardId })
-  })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
-}
-
-export const addUserLike = (userId, cardId) => {
-  return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
-    method: 'PUT',
-    headers: {
-      authorization: 'f3738230-a228-4435-8289-a861e5a04082',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ likes: userId })
-  })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
-}
-
-export const deleteUserLike = (userId, cardId) => {
-  return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
-    method: 'DELETE',
-    headers: {
-      authorization: 'f3738230-a228-4435-8289-a861e5a04082',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ likes: userId })
-  })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
-}
+enableValidation(validationConfigurations);
 
 getUserData()
   .then((result) => {
     profileName.textContent = result.name;
     profileJob.textContent = result.about;
-    userId = result._id;
-    console.log(result, userId)
+    avatar.src = result.avatar;
   })
   .catch((err) => {
     console.log(err);
@@ -202,4 +87,3 @@ getInitialCards()
   .catch((err) => {
     console.log(err);
   });
-

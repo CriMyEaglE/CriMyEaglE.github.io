@@ -13,7 +13,7 @@
 
 .profile__add-button:hover {
    opacity: 0.6;
-   cursor: url("../../../images/cursor.svg"), default;
+   cursor: pointer;
 }
 
 @media (min-width: 768px) {

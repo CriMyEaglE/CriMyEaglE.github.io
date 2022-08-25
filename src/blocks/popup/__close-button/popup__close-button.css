@@ -19,7 +19,7 @@
 
 .popup__close-button:hover {
    opacity: .6;
-   cursor: url("../../../images/cursor.svg"), default;
+   cursor: pointer;
 }
 
 @media (min-width: 584px) {

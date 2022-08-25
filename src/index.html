@@ -16,7 +16,8 @@
       <main class="content">
 
          <section class="profile">
-         <div class="profile__edit-avatar"><img src="<%=require('./images/avatar.jpg')%>" alt="Аватар" class="profile__avatar"></div>
+            <div class="avatar-overlay"><img src="<%=require('./images/avatar.jpg')%>" alt="Аватар"
+                  class="profile__avatar"></div>
             <div class="profile__two-columns">
                <h1 class="profile__name">Жак-Ив Кусто</h1>
                <button type="button" class="profile__edit-button" id="editButton"></button>
@@ -33,7 +34,7 @@
          <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
 
-      <div class="popup popup_hidden" id="editFormPopup">
+      <div class="popup" id="editFormPopup">
          <div class="popup__container">
             <button class="popup__close-button"></button>
             <form class="edit-form" novalidate>
@@ -44,13 +45,12 @@
                <input type="text" class="edit-form__input-form" name="profileJob" id="job-input"
                   placeholder="Исследователь океана" required minlength="2" maxlength="200">
                <span class="job-input-error edit-form__input-error">Вы пропустили это поле.</span>
-               <button type="submit" class="edit-form__save-button edit-form__save-button_disabled"
-                  id="editFormSaveButton">Сохранить</button>
+               <button type="submit" class="edit-form__save-button edit-form__save-button_disabled">Сохранить</button>
             </form>
          </div>
       </div>
 
-      <div class="popup popup_hidden" id="addFormPopup">
+      <div class="popup" id="addFormPopup">
          <div class="popup__container">
             <button type="button" class="popup__close-button"></button>
             <form class="edit-form" novalidate>
@@ -61,13 +61,12 @@
                <input type="url" class="edit-form__input-form" name="photoLink" id="url-input"
                   placeholder="Ссылка на картинку" required>
                <span class="url-input-error edit-form__input-error">Введите адрес сайта.</span>
-               <button type="submit" class="edit-form__save-button edit-form__save-button_disabled"
-                  id="saveButton">Сохранить</button>
+               <button type="submit" class="edit-form__save-button edit-form__save-button_disabled">Сохранить</button>
             </form>
          </div>
       </div>
 
-      <div class="popup popup_dark popup_hidden" id="fullscreenImagePopup">
+      <div class="popup popup_dark" id="fullscreenImagePopup">
          <div class="popup__container">
             <button class="popup__close-button"></button>
             <div class="fullscreen">
@@ -77,6 +76,17 @@
          </div>
       </div>
 
+      <div class="popup" id="avatarPopup">
+         <div class="popup__container">
+            <button class="popup__close-button"></button>
+            <form class="edit-form" novalidate>
+               <h2 class="edit-form__title">Обновить аватар</h2>
+               <input type="url" class="edit-form__input-form" placeholder="Ссылка на аватарку" id="url-input" required>
+               <span class="url-input-error edit-form__input-error">Введите адрес сайта.</span>
+               <button type="submit" class="edit-form__save-button edit-form__save-button_disabled">Сохранить</button>
+            </form>
+         </div>
+      </div>
 
       <template id="card">
          <div class="card">
@@ -85,7 +95,7 @@
             <div class="card__field">
                <h2 class="card__title"></h2>
                <button type="button" class="card__like-button"></button>
-               <span class="card__likes"></span>
+               <span class="card__likes">0</span>
             </div>
          </div>
       </template>

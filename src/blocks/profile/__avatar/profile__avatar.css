@@ -3,22 +3,10 @@
    width: 120px;
    height: 120px;
    transition: opacity .5s;
+   object-fit: cover;
 }
 
 .profile__avatar:hover {
    opacity: 0.2;
-}
-
-.profile__edit-avatar {
-   background-repeat: no-repeat;
-   background-image: url(../../../images/editAvatar.svg);
-   background-size: 26px 26px;
-   background-position: center;
-}
-
-
-@media (min-width: 768px) {
-   .profile__edit-avatar {
-      grid-area: avatar;
-   }
+   cursor: pointer;
 }

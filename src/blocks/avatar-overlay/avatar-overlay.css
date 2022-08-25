@@ -1,0 +1,12 @@
+.avatar-overlay {
+   background-repeat: no-repeat;
+   background-image: url(../../images/editAvatar.svg);
+   background-size: 26px 26px;
+   background-position: center;
+}
+
+@media (min-width: 768px) {
+   .avatar-overlay {
+      grid-area: avatar;
+   }
+}
