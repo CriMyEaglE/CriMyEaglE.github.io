@@ -1,17 +1,19 @@
-import { cards, photoLink, photoName, addForm} from "./variables.js";
-import { closePopup, openImagePopup } from "./modal.js";
-import { addUserLike, deleteUserLike, deleteCardById, postNewCard, userId } from "./api.js";
+import { cards, photoLink, photoName, addForm } from "./utils/constants.js";
+import { closePopup } from "./utils.js";
+import { openImagePopup } from  "./modal.js";
+import { addUserLike, deleteUserLike, deleteCardById, postNewCard, handleError } from "./api.js";
+import { userId } from "../index.js";
 
 export function createCard(photoName, photoLink) {
    const cardTemplate = document.querySelector('#card').content;
    const newCard = cardTemplate.querySelector('.card').cloneNode(true);
    const newCardImg = newCard.querySelector('.card__image');
    newCard.querySelector('.card__title').textContent = photoName;
-   newCardImg.setAttribute('alt', photoName);
+   newCardImg.alt = photoName;
    newCardImg.src = photoLink;
-   newCard.addEventListener('click', deleteCard);
-   newCard.addEventListener('click', likeCard);
-   newCard.addEventListener('click', openImagePopup);
+   newCard.querySelector('.card__delete-button').addEventListener('click', deleteCard);
+   newCard.querySelector('.card__like-button').addEventListener('click', likeCard);
+   newCardImg.addEventListener('click', () => openImagePopup(photoName, photoLink));
    return newCard;
 }
 
@@ -31,18 +33,14 @@ export function likeCard(evt) {
                evt.target.classList.add('card__like-button_active');
                evt.target.closest('.card').querySelector('.card__likes').textContent = res.likes.length;
             })
-            .catch((err) => {
-               console.log(err);
-            });
+            .catch(handleError);
       } else {
          deleteUserLike(userId, evt.target.closest('.card').id)
             .then((res) => {
                evt.target.classList.remove('card__like-button_active');
                evt.target.closest('.card').querySelector('.card__likes').textContent = res.likes.length;
             })
-            .catch((err) => {
-               console.log(err);
-            });
+            .catch(handleError);
       }
    }
 }
@@ -52,7 +50,8 @@ export function deleteCard(evt) {
       deleteCardById(evt.target.closest('.card').id)
          .then((result) => {
             evt.target.closest('.card').remove();
-         });
+         })
+         .catch(handleError);
    }
 }
 
@@ -61,17 +60,18 @@ export function saveNewCard(evt) {
    const newPhotoName = photoName.value;
    const newPhotoLink = photoLink.value;
    const newCard = createCard(newPhotoName, newPhotoLink);
-   evt.target.querySelector('.edit-form__save-button').textContent = 'Сохранение...';
    postNewCard(newPhotoName, newPhotoLink)
       .then((res) => {
-         console.log(res);
+         evt.target.reset();
          newCard.id = res._id;
+         evt.submitter.textContent = 'Сохранение...';
+         addNewCard(newCard);
+         closePopup(addForm);
+         evt.submitter.classList.add('edit-form__save-button_disabled')
+         evt.submitter.disabled = true;
       })
-      .catch((err) => {
-         console.log(err);
+      .catch(handleError)
+      .finally(() => {
+         evt.submitter.textContent = 'Сохранить';
       });
-   addNewCard(newCard);
-   closePopup(addForm);
-   evt.target.querySelector('.edit-form__save-button').classList.add('edit-form__save-button_disabled')
-   evt.target.querySelector('.edit-form__save-button').disabled = true;
 }

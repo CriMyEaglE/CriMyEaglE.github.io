@@ -5,26 +5,17 @@ export const config = {
       'Content-Type': 'application/json'
    }
 }
+
+export const handleError = (err) => {
+      console.log('Ошибка: ' + err);
+}
+
 export const handleResponse = (res) => {
    if (res.ok) {
       return res.json();
    }
    return Promise.reject(`Ошибка: ${res.status}`);
 }
-export let userId;
-
-const getUserId = () => {
-   return fetch(`${config.baseUrl}/users/me`, {
-      headers: config.headers,
-   }
-   )
-      .then(handleResponse)
-      .then((res) => {
-         userId = res._id;
-      })
-}
-
-getUserId();
 
 export const getInitialCards = () => {
    return fetch(`${config.baseUrl}/cards`, {
