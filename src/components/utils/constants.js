@@ -16,11 +16,12 @@ export const avatarLink = avatarPopup.querySelector('#url-input');
 export const popupImage = fullscreenImagePopup.querySelector('.fullscreen__image');
 export const popupTitle = fullscreenImagePopup.querySelector('.fullscreen__title');
 export const popups = document.querySelectorAll('.popup');
+export const deleteForm = document.querySelector('#deletePopup');
 export const validationConfigurations = {
-   formSelector: '.edit-form',
-   inputSelector: '.edit-form__input-form',
-   submitButtonSelector: '.edit-form__save-button',
-   inactiveButtonClass: 'edit-form__save-button_disabled',
-   inputErrorClass: 'edit-form__input-form_type_error',
-   errorClass: 'edit-form__input-error_active'
- }
+  formSelector: '.edit-form',
+  inputSelector: '.edit-form__input-form',
+  submitButtonSelector: '.edit-form__save-button',
+  inactiveButtonClass: 'edit-form__save-button_disabled',
+  inputErrorClass: 'edit-form__input-form_type_error',
+  errorClass: 'edit-form__input-error_active'
+}

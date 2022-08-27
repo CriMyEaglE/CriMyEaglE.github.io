@@ -7,7 +7,7 @@ export const config = {
 }
 
 export const handleError = (err) => {
-      console.log('Ошибка: ' + err);
+   console.log('Ошибка: ' + err);
 }
 
 export const handleResponse = (res) => {
@@ -76,18 +76,9 @@ export const deleteCardById = (cardId) => {
       .then(handleResponse);
 }
 
-export const addUserLike = (userId, cardId) => {
+export const toggleUserLike = (userId, cardId, method) => {
    return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
-      method: 'PUT',
-      headers: config.headers,
-      body: JSON.stringify({ likes: userId })
-   })
-      .then(handleResponse);
-}
-
-export const deleteUserLike = (userId, cardId) => {
-   return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
-      method: 'DELETE',
+      method: method,
       headers: config.headers,
       body: JSON.stringify({ likes: userId })
    })

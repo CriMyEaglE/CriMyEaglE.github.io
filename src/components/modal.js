@@ -1,12 +1,12 @@
 import { fullscreenImagePopup, popupImage, popupTitle } from "./utils/constants.js";
-import { closePopup, openPopup} from "./utils.js";
+import { closePopup, openPopup } from "./utils.js";
 
 
 export function openImagePopup(name, link) {
-      popupImage.src = link;
-      popupTitle.textContent = name;
-      popupImage.alt = name;
-      openPopup(fullscreenImagePopup);
+   popupImage.src = link;
+   popupTitle.textContent = name;
+   popupImage.alt = name;
+   openPopup(fullscreenImagePopup);
 }
 
 export function closeOnEsc(evt) {
