@@ -4,6 +4,8 @@ import { openImagePopup } from "./modal.js";
 import { toggleUserLike, deleteCardById, postNewCard, handleError } from "./api.js";
 import { userId } from "../index.js";
 
+let currentCard = null;
+
 export function createCard(card) {
    const cardTemplate = document.querySelector('#card').content;
    const newCard = cardTemplate.querySelector('.card').cloneNode(true);
@@ -24,11 +26,9 @@ export function createCard(card) {
       deleteButton.remove();
    } else {
       deleteButton.addEventListener('click', (evt) => {
-         console.log(evt.target.closest('.card'));
-         deleteCard(evt.target.closest('.card'));
-         
-         // openPopup(deleteForm);
-         // deleteForm.addEventListener('submit', deleteCard(newCard));
+         currentCard = evt.target.closest('.card');
+         openPopup(deleteForm);
+         deleteForm.addEventListener('submit', deleteCard);
       });
    }
    likeButton.addEventListener('click', likeCard);
@@ -67,11 +67,14 @@ function likeCard(evt) {
    }
 }
 
-export function deleteCard(card) {
-   deleteCardById(card._id)
+export function deleteCard() {
+   deleteCardById(currentCard._id)
       .then(() => {
-         card.remove();
+         currentCard.remove();
          closePopup(deleteForm);
+      })
+      .then(() => {
+         currentCard = null;
       })
       .catch(handleError);
 }
