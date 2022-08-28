@@ -28,13 +28,14 @@ export function createCard(card) {
       deleteButton.addEventListener('click', (evt) => {
          currentCard = evt.target.closest('.card');
          openPopup(deleteForm);
-         deleteForm.addEventListener('submit', deleteCard);
       });
    }
    likeButton.addEventListener('click', likeCard);
    newCardImg.addEventListener('click', () => openImagePopup(card.name, card.link));
    return newCard;
 }
+
+deleteForm.addEventListener('submit', deleteCard);
 
 export function addInitialCard(newCard) {
    cards.append(newCard);
@@ -46,10 +47,11 @@ function addNewCard(newCard) {
 
 function likeCard(evt) {
    if (evt.target.classList.contains('card__like-button')) {
-      const cardLike = evt.target.closest('.card').querySelector('.card__likes');
+      const closestCard = evt.target.closest('.card');
+      const cardLike = closestCard.querySelector('.card__likes');
       if (!evt.target.classList.contains('card__like-button_active')) {
          const method = 'PUT';
-         toggleUserLike(userId, evt.target.closest('.card')._id, method)
+         toggleUserLike(userId, closestCard._id, method)
             .then((res) => {
                evt.target.classList.toggle('card__like-button_active');
                cardLike.textContent = res.likes.length;
@@ -57,7 +59,7 @@ function likeCard(evt) {
             .catch(handleError);
       } else {
          const method = 'DELETE';
-         toggleUserLike(userId, evt.target.closest('.card')._id, method)
+         toggleUserLike(userId, closestCard._id, method)
             .then((res) => {
                evt.target.classList.toggle('card__like-button_active');
                cardLike.textContent = res.likes.length;
@@ -67,7 +69,8 @@ function likeCard(evt) {
    }
 }
 
-export function deleteCard() {
+export function deleteCard(evt) {
+   changeButtonText(evt.submitter, 'Удаление...');
    deleteCardById(currentCard._id)
       .then(() => {
          currentCard.remove();
@@ -76,25 +79,36 @@ export function deleteCard() {
       .then(() => {
          currentCard = null;
       })
-      .catch(handleError);
+      .catch(handleError)
+      .finally(() => {
+         changeButtonText(evt.submitter, 'Да');
+      });
+}
+
+export function changeButtonText(btn, text = 'Сохранить') {
+   btn.textContent = text;
+}
+
+export function disableButton(btn) {
+   btn.classList.add('edit-form__save-button_disabled')
+   btn.disabled = true;   
 }
 
 export function saveNewCard(evt) {
    evt.preventDefault();
    const newPhotoName = photoName.value;
    const newPhotoLink = photoLink.value;
+   changeButtonText(evt.submitter, 'Сохранение...');
    postNewCard(newPhotoName, newPhotoLink)
       .then((res) => {
          const newCard = createCard(res);
          evt.target.reset();
-         evt.submitter.textContent = 'Сохранение...';
          addNewCard(newCard);
          closePopup(addForm);
-         evt.submitter.classList.add('edit-form__save-button_disabled')
-         evt.submitter.disabled = true;
+         disableButton(evt.submitter);
       })
       .catch(handleError)
       .finally(() => {
-         evt.submitter.textContent = 'Сохранить';
+         changeButtonText(evt.submitter);
       });
 }

@@ -2,8 +2,8 @@ import { closePopup, openPopup } from "./components/utils.js";
 import { changeAvatar, changeProfile } from "./components/profile.js";
 import { enableValidation } from "./components/validation.js";
 import { addInitialCard, createCard, saveNewCard} from "./components/card.js";
-import { getUserData, getInitialCards, handleError, getCard } from "./components/api.js"
-import { avatar, avatarPopup, editButton, editForm, inputName, inputJob, addButton, addForm, profileName, profileJob, popups, validationConfigurations, deleteForm } from './components/utils/constants.js';
+import { getUserData, getInitialCards, handleError } from "./components/api.js"
+import { avatar, avatarPopup, editButton, editForm, inputName, inputJob, addButton, addForm, profileName, profileJob, popups, validationConfigurations } from './components/utils/constants.js';
 import './pages/index.css';
 
 export let userId;
